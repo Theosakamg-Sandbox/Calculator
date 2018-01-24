@@ -1,0 +1,14 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+
+repositories {
+    mavenCentral()
+    maven {
+        url 'http://repo.maven.apache.org/maven2'
+    }
+}
+
+dependencies {
+    compile 'junit:junit:4.12'
+}
