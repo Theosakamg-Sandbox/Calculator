@@ -26,7 +26,7 @@ public class AdditionTest {
 	@Test
 	public void testAddition() {
 		Assert.assertNotNull(this.add);
-		Assert.assertEquals(3, this.add.value);
+		Assert.assertEquals(1, this.add.value);
 	}
 
 	@Test
