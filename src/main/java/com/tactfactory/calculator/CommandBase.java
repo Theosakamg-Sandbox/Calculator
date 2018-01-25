@@ -8,6 +8,7 @@ public abstract class CommandBase implements Command {
     /** Internal value. */
     protected int value;
 
+
     /**
      * Constructor of command with initial value.
      * @param a Initial value.

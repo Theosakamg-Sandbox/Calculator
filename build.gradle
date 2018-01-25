@@ -5,6 +5,7 @@ apply plugin: 'findbugs'
 apply plugin: 'pmd'
 apply plugin: 'checkstyle'
 apply plugin: 'jacoco'
+apply plugin: 'jdepend'
 
 repositories {
     mavenCentral()
@@ -53,6 +54,11 @@ jacoco {
     toolVersion "0.7.5.201505241946"
 }
 
+jdepend {
+    ignoreFailures = true
+    jdependTest.enabled = false
+}
+
 task cpdMain(dependsOn: 'pmdMain') {
   ext.ignoreFailures = true
 
@@ -64,9 +70,11 @@ task cpdMain(dependsOn: 'pmdMain') {
     ant.taskdef(name: 'cpd', classname: 'net.sourceforge.pmd.cpd.CPDTask',
             classpath: configurations.pmd.asPath)
 
-    ant.cpd(minimumTokenCount: '100', format: 'xml',
-      outputFile: new File(outDir , 'main.xml')) {
-      fileset(dir: projectDir.getPath()) {
+    ant.cpd(
+        minimumTokenCount: '100',
+        format: 'xml',
+        outputFile: new File(outDir , 'main.xml')) {
+        fileset(dir: projectDir.getPath()) {
               sourceSets.main.java.each { sourceDir ->
                 include(name: project.relativePath(sourceDir.getPath()))
             }
