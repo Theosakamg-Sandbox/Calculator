@@ -1,18 +1,25 @@
 package com.tactfactory.calculator;
 
-public class Addition {
+/**
+ * Command to Addition a value.
+ */
+public class Addition extends CommandBase {
 
-	protected int value = 0;
+    /**
+     * Constructor of command with initial value.
+     * @param a Initial value.
+     */
+    public Addition(final int a) {
+        super(a);
+    }
 
-	public Addition(int a) {
-		this.value = a;
-	}
+    @Override
+    public void make(final int b) {
+        this.value = this.value + b;
+    }
 
-	public void make(int b) {
-		this.value = this.value + b;
-	}
-
-	public int getValue() {
-		return this.value;
-	}
+    @Override
+    public int getValue() {
+        return this.value;
+    }
 }

@@ -4,31 +4,30 @@
 package com.tactfactory.calculator;
 
 /**
- * @author Mickael Gaillard <mickael.gaillard@tactfactory.com>
- *
+ * Entry point of application.
  */
-public class Application {
+public final class Application {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		Addition add = new Addition(1);
+    private Application() { }
 
-		String tt = "toto";
-		Object ii = new Object();
+    /**
+     * Entry-point function of Application.
+     * @param args Arguments from CLI.
+     */
+    public static void main(final String[] args) {
+        final Command add = new Addition(1);
 
-		if (tt.equals(ii)) {
-			System.out.println("same !!!");
-		}
+        add.make(2);
+        System.out.println(add.getValue());
 
-		add.make(2);
-		System.out.println(add.getValue());
+        add.make(3);
+        System.out.println(add.getValue());
 
-		add.make(3);
-		System.out.println(add.getValue());
+        final Command div = new Divide(add.getValue());
 
-		System.out.println("Hello W !!!");
-	}
+        div.make(2);
+        System.out.println(div.getValue());
 
+        System.out.println("Hello W !!!");
+    }
 }

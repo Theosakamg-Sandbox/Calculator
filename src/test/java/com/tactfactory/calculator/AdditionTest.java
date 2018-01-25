@@ -7,37 +7,37 @@ import org.junit.Test;
 
 public class AdditionTest {
 
-	private Addition add;
+    private Addition add;
 
-	@Before
-	public void setUp() throws Exception {
-		this.add = new Addition(1);
-	}
+    @Before
+    public void setUp() throws Exception {
+        this.add = new Addition(1);
+    }
 
-	@After
-	public void tearDown() throws Exception {
-		this.add = null;
-	}
+    @After
+    public void tearDown() throws Exception {
+        this.add = null;
+    }
 
-	@Test
-	public void testAddition() {
-		Assert.assertNotNull(this.add);
-		Assert.assertEquals(1, this.add.value);
-	}
+    @Test
+    public void testAddition() {
+        Assert.assertNotNull(this.add);
+        Assert.assertEquals(1, this.add.value);
+    }
 
-	@Test
-	public void testMake() {
-		Assert.assertNotNull(this.add);
+    @Test
+    public void testMake() {
+        Assert.assertNotNull(this.add);
 
-		this.add.make(2);
+        this.add.make(2);
 
-	    Assert.assertEquals(3, this.add.value);
-	}
+        Assert.assertEquals(3, this.add.value);
+    }
 
-	@Test
-	public void testGetValue() {
-		Assert.assertNotNull(this.add);
-	    Assert.assertEquals(1, this.add.getValue());
-	}
+    @Test
+    public void testGetValue() {
+        Assert.assertNotNull(this.add);
+        Assert.assertEquals(1, this.add.getValue());
+    }
 
 }
