@@ -15,6 +15,13 @@ public class Application {
 	public static void main(String[] args) {
 		Addition add = new Addition(1);
 
+		String tt = "toto";
+		Object ii = new Object();
+
+		if (tt.equals(ii)) {
+			System.out.println("same !!!");
+		}
+
 		add.make(2);
 		System.out.println(add.getValue());
 
