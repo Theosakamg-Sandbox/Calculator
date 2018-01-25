@@ -3,7 +3,7 @@ apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'findbugs'
 apply plugin: 'pmd'
-//apply plugin: 'checkstyle'
+apply plugin: 'checkstyle'
 apply plugin: 'jacoco'
 
 repositories {
@@ -12,6 +12,10 @@ repositories {
 
 dependencies {
     testCompile 'junit:junit:4.12'
+}
+
+checkstyle {
+  ignoreFailures = true
 }
 
 findbugs {
@@ -48,15 +52,16 @@ jacoco {
     toolVersion "0.7.5.201505241946"
 }
 
-check << {
-  File outDir = new File('build/reports/cpd/')
-  outDir.mkdirs()
-  ant.taskdef(name: 'cpd', classname: 'net.sourceforge.pmd.cpd.CPDTask',
-    classpath: configurations.pmd.asPath)
-  ant.cpd(minimumTokenCount: '100', format: 'xml',
-    outputFile: new File(outDir , 'cpd.xml')) {
-    fileset(dir: "src/main/java") {
-      include(name: '**/*.java')
-    }
-  }
-}
+//check << {
+//  File outDir = new File('build/reports/cpd/')
+//  outDir.mkdirs()
+//  ant.taskdef(name: 'cpd', classname: 'net.sourceforge.pmd.cpd.CPDTask',
+//    classpath: configurations.pmd.asPath)
+//  ant.cpd(minimumTokenCount: '100', format: 'xml',
+//    outputFile: new File(outDir , 'cpd.xml')) {
+//    fileset(dir: "src/main/java") {
+//      include(name: '**/*.java')
+//    }
+//  }
+//}
+
