@@ -49,7 +49,7 @@ jacoco {
 }
 
 check << {
-  File outDir = new File('build/reports/pmd/')
+  File outDir = new File('build/reports/cpd/')
   outDir.mkdirs()
   ant.taskdef(name: 'cpd', classname: 'net.sourceforge.pmd.cpd.CPDTask',
     classpath: configurations.pmd.asPath)
